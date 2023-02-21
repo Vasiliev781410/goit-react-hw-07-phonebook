@@ -2,8 +2,8 @@ import { useState } from "react";
 import css from "./ContactForm.module.css";
 import { useDispatch, useSelector } from "react-redux";
 //import { addContactAction } from "../../redux/contacts-slice";
-//import { addContactsThunk } from "../../redux/contacts/contacts-thunk";
-import { nanoid } from 'nanoid';
+import { addContactThunk } from "../../redux/contacts-thunk";
+
 
 export const ContactForm = () => {
     const [name,setName] = useState("");
@@ -27,14 +27,15 @@ export const ContactForm = () => {
        
     };
     const onSubmitLocal = (evt)=>{  
-        evt.preventDefault();     
-        const newContact = {id: nanoid(), name: name, number: number}; 
+        evt.preventDefault(); 
+        //const newContact = {id: nanoid(), name: name, number: number};     
+        const newContact = {name: name, number: number}; 
         setName("");    
         setNumber("");  
         if (selectContacts.some((contact) => contact.name.toLowerCase().trim() === name.toLowerCase().trim())) {
             return alert(`${name} already exists`);
           }
-        //dispatch(addContactAction(newContact));           
+        dispatch(addContactThunk(JSON.stringify(newContact)));           
     };
 
   

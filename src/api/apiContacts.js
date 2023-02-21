@@ -13,6 +13,11 @@ export const getContactById = async (id) => {
   return data;
 };
 
+export const addContact = async (contact) => {
+  const { data } = await apiContacts.post(contact);
+  return data;
+};
+
 export const deleteContact = async (id) => {
   const { data } = await apiContacts.delete(id);
   return data;
