@@ -4,15 +4,15 @@ import { deleteContactThunk, getContactsThunk, addContactThunk } from "./contact
 const handlePending = (state) => {
   state.contacts.isLoading = true;
 };
-const handleRejected = (state) => {
-  state.contacts.error = null;
+const handleRejected = (state, { payload }) => {
+  state.contacts.error = payload;
 };
 
 const initialState = {
     contacts: {
       items: [],
       isLoading: false,
-      error: null
+      error: null,
     },
     filter: ""   
 };

@@ -8,13 +8,9 @@ export const getContacts = async () => {
   const { data } = await apiContacts.get("");
   return data;
 };
-export const getContactById = async (id) => {
-  const { data } = await apiContacts.get(id);
-  return data;
-};
 
-export const addContact = async (contact) => {
-  const { data } = await apiContacts.post(contact);
+export const addContact = async (newContact) => {
+  const { data } = await apiContacts.post("",newContact);
   return data;
 };
 
