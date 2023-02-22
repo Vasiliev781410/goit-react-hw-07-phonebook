@@ -33,9 +33,7 @@ export const ContactForm = () => {
         if (selectContacts.some((contact) => contact.name.toLowerCase().trim() === name.toLowerCase().trim())) {
             return alert(`${name} already exists`);
           }
-        dispatch(addContactThunk(newContact));  
-        //dispatch(addContactThunk(JSON.stringify(newContact)));   
-        console.log(newContact);                
+        dispatch(addContactThunk(newContact));                     
     };
 
   
